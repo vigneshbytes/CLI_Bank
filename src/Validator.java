@@ -40,4 +40,24 @@ public final class Validator {
             return age;
         }
     }
+
+    // Method to check DEPOSIT
+    static final int depositCheck (Integer add) throws GenericException {
+
+        if (add == null){
+            throw new GenericException("cannot be null pointer");
+        }
+
+        if (add < 0) {
+            throw new GenericException("deposit cannot be negative");
+        }
+        else if(add >10000) {
+            throw new GenericException("deposit unusually large");
+        }
+        else {
+            return add;
+        }
+    }
+
+
 }
