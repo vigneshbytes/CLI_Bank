@@ -5,14 +5,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println("Starting from Main method");
+
         // main code here
-        Customer p1 = Customer.CustomerData.createNewCustomer();
+        UserInterface u1 = new UserInterface();
 
-        System.out.println("Name: "+ p1.name);
-        System.out.println("Age: "+ p1.age);
-        System.out.println("AccStatus: "+ p1.activeStatus);
-        System.out.println("Pass: "+ p1.password);
-        System.out.println("CustomerID: "+p1.customerID);
+        u1.enteredUserConsole();
 
+
+        System.out.println("Back to Main method");
     }
 }

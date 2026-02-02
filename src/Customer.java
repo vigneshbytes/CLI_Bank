@@ -53,6 +53,46 @@ public class Customer extends People{
             return c;
         }
 
+        public static Customer customerLogin(){
 
+            // Method to validate existence of customer
+            if (customerDB.size() == 0){
+                System.out.println("You are the first customer. lets create you an account");
+                Customer c = createNewCustomer();
+                System.out.println("Your ID is "+c.customerID);
+                return c;
+            }
+
+
+            boolean validFlag = false;
+            Scanner sc = new Scanner(System.in);
+            Integer customerID = 0;
+
+            while(!validFlag){
+                System.out.println("Enter the CustomerID (101 to 999)");
+                if (sc.hasNextInt()){
+                    customerID = sc.nextInt();
+                }
+                else {
+                    System.out.println("Invalid input, please try again");
+                    sc.nextLine();
+                }
+                if (customerID < 101 | customerID >999){
+                    System.out.println("CustomerID out of range, please try again");
+                    sc.nextLine();
+                    continue;
+                }
+                if (customerDB.containsKey(customerID)){
+                    validFlag = true;
+                    return customerDB.get(customerID);
+                }
+                else {
+                    System.out.println("CustomerID does not exist, please try again");
+                    sc.nextLine();
+                    continue;
+                }
+            }
+            return null;
+        }
     }
 }

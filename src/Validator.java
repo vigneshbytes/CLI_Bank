@@ -60,4 +60,22 @@ public final class Validator {
     }
 
 
+    // Method to check UserChoices Enum
+    static final int choiceCheck (Integer choice) throws GenericException {
+
+        if (choice == null){
+            throw new GenericException("cannot be null pointer");
+        }
+
+        if (choice < 0) {
+            throw new GenericException("choice cannot be negative");
+        }
+        else if(choice >4) {
+            throw new GenericException("choice unusually large");
+        }
+        else {
+            return choice;
+        }
+    }
+
 }
